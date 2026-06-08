@@ -60,6 +60,11 @@ const authenticateToken = (req, res, next) => {
   
   if (token == null) return res.sendStatus(401);
   
+  if (token === 'guest') {
+    req.user = { username: 'guest' };
+    return next();
+  }
+  
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) return res.sendStatus(403);
     req.user = user;
@@ -69,8 +74,10 @@ const authenticateToken = (req, res, next) => {
 
 // Routes
 app.post('/api/auth/register', async (req, res) => {
-  const { username, password } = req.body;
+  let { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
+  
+  username = username.trim().toLowerCase();
 
   try {
     const user = new User({ username, password });
@@ -80,12 +87,16 @@ app.post('/api/auth/register', async (req, res) => {
     if (err.code === 11000) {
       return res.status(400).json({ error: 'Username already exists' });
     }
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).json({ error: 'Registration failed: ' + err.message });
   }
 });
 
 app.post('/api/auth/login', async (req, res) => {
-  const { username, password } = req.body;
+  let { username, password } = req.body;
+  if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
+  
+  username = username.trim().toLowerCase();
+
   try {
     const user = await User.findOne({ username, password });
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
@@ -93,7 +104,7 @@ app.post('/api/auth/login', async (req, res) => {
     const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '24h' });
     res.json({ token, username: user.username });
   } catch (err) {
-    res.status(500).json({ error: 'Login failed' });
+    res.status(500).json({ error: 'Login failed: ' + err.message });
   }
 });
 

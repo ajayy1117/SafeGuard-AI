@@ -102,12 +102,27 @@ export default function Login({ setToken }) {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center space-y-4 flex flex-col items-center">
           <button
+            type="button"
             onClick={() => { setIsLogin(!isLogin); setError(''); }}
             className="text-sm text-muted-foreground hover:text-primary transition-colors"
           >
             {isLogin ? "Don't have an account? Register" : 'Already have an account? Sign in'}
+          </button>
+          
+          <div className="flex items-center justify-center gap-4 w-full">
+            <div className="h-px bg-white/10 w-1/4" />
+            <span className="text-xs text-muted-foreground uppercase tracking-wider">or</span>
+            <div className="h-px bg-white/10 w-1/4" />
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setToken('guest')}
+            className="text-sm font-medium text-primary hover:text-primary/80 transition-colors py-2 px-4 border border-primary/20 rounded-lg bg-primary/5 hover:bg-primary/10"
+          >
+            Continue without login
           </button>
         </div>
       </motion.div>
