@@ -53,6 +53,29 @@ Ensure you have the following installed on your machine before setting up the pr
 - **pip** (Python package installer)
 - **Git**
 
+## 🚀 Deployment
+This project is configured for continuous deployment to ensure high availability and fast load times.
+
+1. Frontend (Vercel)
+The React application is deployed on Vercel, utilizing their global edge network for optimized performance.
+
+Platform: Vercel
+
+Build Command: npm run build
+
+Output Directory: dist
+
+Live URL: safeguard--ai.vercel.app
+
+2. Backend (Render)
+The Node.js/Express API is hosted on Render, handling authentication and database logging via MongoDB.
+
+Platform: Render (Web Service)
+
+Start Command: node server.js
+
+Environment Configuration: Securely managed via Render's dashboard (MONGODB_URI, JWT_SECRET).
+
 ## 📊 Dataset Attribution
 
 The AI model was trained using the **Face Mask Dataset** curated by Omkar Gurav. 
