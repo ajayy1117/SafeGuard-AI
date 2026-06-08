@@ -86,7 +86,7 @@ export default function Dashboard({ token }) {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12 relative">
       {/* Real-time Alert Toast */}
       {realtimeAlert && (
-        <div className="fixed top-8 right-8 z-50 animate-in slide-in-from-right fade-in glass border-destructive/50 bg-destructive/10 p-4 rounded-2xl shadow-2xl flex items-start gap-4 max-w-sm">
+        <div className="fixed top-4 left-4 right-4 md:left-auto md:top-8 md:right-8 z-50 animate-in slide-in-from-top md:slide-in-from-right fade-in glass border-destructive/50 bg-destructive/10 p-4 rounded-2xl shadow-2xl flex items-start gap-4 max-w-sm mx-auto md:mx-0">
           <div className="bg-destructive/20 p-2 rounded-full text-destructive shrink-0">
             <AlertCircle size={24} />
           </div>

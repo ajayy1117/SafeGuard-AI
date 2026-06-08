@@ -22,9 +22,9 @@ function App() {
 
   return (
     <Router>
-      <div className="flex h-screen overflow-hidden">
+      <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         <Sidebar setToken={setToken} />
-        <main className="flex-1 overflow-y-auto p-8 relative">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 relative pb-24 md:pb-8">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background -z-10" />
           <Routes>
             <Route path="/dashboard" element={<Dashboard token={token} />} />
