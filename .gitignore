@@ -1,9 +1,32 @@
+# Node.js / Frontend / Backend
 node_modules/
-.env
+npm-debug.log
 dist/
 build/
+
+# Python / Machine Learning
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Environment Variables
+.env
+
+# Datasets & Large Files
+face-mask-dataset/
+*.zip
+models/*.h5
+
+# OS Files
 .DS_Store
+Thumbs.db
+
+# Logs & Local DBs
+*.log
 database.sqlite
 scratch/
 artifacts/
-*.log
+
+face-mask-dataset/
