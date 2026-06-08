@@ -1,5 +1,9 @@
 # 🛡️ SafeGuard-AI
 
+<a href="https://safeguard--ai.vercel.app/" target="_blank">
+  <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo" />
+</a>
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=nodedotjs)
@@ -65,7 +69,7 @@ Build Command: npm run build
 
 Output Directory: dist
 
-Live URL: safeguard--ai.vercel.app
+Live URL: Live URL: [https://safeguard--ai.vercel.app/](https://safeguard--ai.vercel.app/)
 
 2. Backend (Render)
 The Node.js/Express API is hosted on Render, handling authentication and database logging via MongoDB.
