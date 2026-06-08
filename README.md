@@ -69,7 +69,7 @@ Build Command: npm run build
 
 Output Directory: dist
 
-Live URL: Live URL: [https://safeguard--ai.vercel.app/](https://safeguard--ai.vercel.app/)
+Live URL: [https://safeguard--ai.vercel.app/](https://safeguard--ai.vercel.app/)
 
 2. Backend (Render)
 The Node.js/Express API is hosted on Render, handling authentication and database logging via MongoDB.
