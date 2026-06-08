@@ -9,6 +9,13 @@
 
 **SafeGuard-AI** is a comprehensive, real-time AI surveillance system designed to monitor camera feeds and detect security and safety violations, such as individuals not wearing face masks. Built with a modern web stack and deep learning technologies, it provides actionable insights and alerts through an intuitive dashboard.
 
+## 🏗️ System Architecture
+
+The application follows a streamlined data flow for real-time processing:
+1. **Camera Stream:** The React frontend captures video directly from the user's webcam or connected cameras.
+2. **TensorFlow.js Inference:** Video frames are processed locally in the browser. The AI model detects persons and classifies whether they are wearing a mask.
+3. **React UI:** The frontend draws bounding boxes on the live feed and updates inference metrics in real-time.
+4. **Node.js/MongoDB Logging:** When a violation is detected (e.g., no mask), the frontend sends an alert to the Express backend, which securely logs the event into the MongoDB database.
 ## ✨ Key Features
 
 - **Real-time Face Mask Detection:** Continuously processes video feeds directly in the browser using TensorFlow.js.
@@ -25,6 +32,7 @@
 
 ## 📑 Table of Contents
 
+- [System Architecture](#️-system-architecture)
 - [Prerequisites](#-prerequisites)
 - [Dataset Attribution](#-dataset-attribution)
 - [Installation & Setup](#-installation--setup)
@@ -32,6 +40,8 @@
   - [2. Backend Setup (Node.js)](#2-backend-setup-nodejs)
   - [3. Frontend Setup (React)](#3-frontend-setup-react)
   - [4. ML Model Setup (Python - Optional)](#4-ml-model-setup-python---optional)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
 
 ## 📋 Prerequisites
 
@@ -113,3 +123,13 @@ source venv/bin/activate
 # Install required Python packages
 pip install -r requirements.txt
 ```
+
+## 🚑 Troubleshooting
+
+- **Camera Permission Denied:** Ensure that your browser has permission to access the webcam. Check the URL bar for a blocked camera icon and allow access. If testing on mobile, ensure you are using HTTPS.
+- **CORS Errors / API Fails to Connect:** Verify that the Node.js backend is running on `http://localhost:5000` and that your frontend API configuration points to the correct URL.
+- **Model Loading Issues:** If the TensorFlow model fails to load, ensure that the model files (`model.json` and `.bin` shards) are placed correctly in the frontend's `public/model/` directory.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
